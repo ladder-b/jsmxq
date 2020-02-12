@@ -1,0 +1,20 @@
+{
+  "name": "jsmx",  
+  "version": "1.0.0",
+  "description": "JavaScript Message Xchange",
+  "main": "dist/jsmx.js",
+  "scripts": {
+    "build": "rm -fr dist/* build/*; webpack",
+    "clean": "rm -fr dist/* build/*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Balwinder Singh",
+  "license": "Apache",
+  "devDependencies": {
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {}
+}

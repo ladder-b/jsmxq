@@ -1,0 +1,16 @@
+{
+    "files": [
+        "./src/index.ts",
+        "./src/Message.ts",
+        "./src/LinkedList.ts",
+        "./src/Xchange.ts",
+        "./src/Subscriber.ts",
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "ES6",
+        "module": "commonjs",
+        "outDir": "build",
+        "sourceMap": true,
+    }
+}
