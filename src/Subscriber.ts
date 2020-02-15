@@ -2,9 +2,11 @@ import Xchange from "./Xchange";
 import Message from "./Message";
 import ISubscriberObj from './ISubscriberObj';
 
+export var gSubscriberCounter: number = 0;
+
 export default class Subscriber {
     name: string;
-    uid: string;
+    uid: number;
     subjectList: Array<string>;
     msgSentCount: number;
     msgRecvdCount: number;
@@ -13,7 +15,8 @@ export default class Subscriber {
 
     constructor(name: string) {
         this.name = name;
-        this.uid = "0";
+        this.uid = gSubscriberCounter;
+        gSubscriberCounter++;
         this.subjectList = [];
         this.msgSentCount = 0;
         this.msgRecvdCount = 0;
@@ -23,8 +26,20 @@ export default class Subscriber {
         return this.name;
     }
 
+    getUid(): number {
+        return this.uid;
+    }
+
     getSubjectList(): Array<string> {
         return this.subjectList;
+    }
+
+    getMsgSentCount(): number {
+        return this.msgSentCount;
+    }
+     
+    getMsgRecvdCount(): number {
+        return this.msgRecvdCount;
     }
 
     setCallbackObj(obj: ISubscriberObj) {
@@ -51,11 +66,12 @@ export default class Subscriber {
             let msg: Message = new Message(subject, data);
             msg.setSendTime(Date.now());
             msg.setTtl(ttl);
-            msg.setUid("0");
+            msg.setDst(dst);
+            msg.setSource(this.getName());
             this.xchange.post(msg);
             this.msgSentCount++;
         } catch(e) {
-            console.log(e);
+            throw(e);
         }
     }
 

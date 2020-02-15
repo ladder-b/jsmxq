@@ -14,6 +14,10 @@ export default class Xchange {
         this.msgQ = new LinkedList();
     }
 
+    getSubscriberMap(): Map<string, Array<Subscriber>> {
+        return this.subscriberMap;
+    }
+
     /*return list of subscribers to a subject*/
     getSubscriberList(subject: string): Array<Subscriber> {
         return this.subscriberMap.get(subject);
@@ -40,6 +44,28 @@ export default class Xchange {
         })
        
         subscriber.setXchange(this);
+    }
+
+    unsubscribeToSubject(subscriber: Subscriber, subject: string) {
+        let list: Array<Subscriber> = this.getSubscriberList(subject);
+        if (list !== undefined) {
+            let idx: number = list.indexOf(subscriber);
+            if( idx >= 0) {
+                this.subscriberMap.set(subject, list.splice(idx, 1));
+            }
+        }
+    }
+
+    unsubscribe(subscriber: Subscriber) {
+        if(subscriber.getName() === undefined || subscriber.getSubjectList() === undefined) {
+            throw new Error("Error: Subscriber parameter error, either name or subect is undefined");
+        }
+     
+        subscriber.subjectList.forEach(subject => {
+            this.unsubscribeToSubject(subscriber, subject);
+        })
+       
+        subscriber.setXchange(undefined);
     }
 
     post(msg: Message) {
