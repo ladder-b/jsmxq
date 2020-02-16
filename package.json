@@ -11,6 +11,10 @@
   },
   "author": "Balwinder Singh balwinder.ladher@gmail.com",
   "license": "Apache",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ladder-b/jsmx.git"
+  },
   "devDependencies": {
     "@types/chai": "^4.2.9",
     "@types/mocha": "^7.0.1",
