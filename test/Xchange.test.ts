@@ -16,7 +16,7 @@ class Sub extends Subscriber implements ISubscriberObj {
     }
 }
 
-describe("Xchange test", function() {
+describe("Xchange tests", function() {
 
     it("Xchange functionality test", function() {
     

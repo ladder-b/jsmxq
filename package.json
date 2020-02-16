@@ -2,13 +2,14 @@
   "name": "jsmx",
   "version": "1.0.0",
   "description": "JavaScript Message Xchange",
-  "main": "dist/jsmx.js",
+  "main": "dist/jsmx-min.js",
   "scripts": {
-    "build": "rm -fr dist/* build/*; webpack",
+    "build:dev": "webpack --config webpack.dev.js",
+    "build:prod": "rm -fr dist/*; webpack --config webpack.prod.js",
     "clean": "rm -fr dist/* build/*",
     "test": "mocha"
   },
-  "author": "Balwinder Singh",
+  "author": "Balwinder Singh balwinder.ladher@gmail.com",
   "license": "Apache",
   "devDependencies": {
     "@types/chai": "^4.2.9",
@@ -20,7 +21,8 @@
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {}
 }
