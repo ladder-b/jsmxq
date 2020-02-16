@@ -10,7 +10,8 @@
     "test": "mocha"
   },
   "author": "Balwinder Singh balwinder.ladher@gmail.com",
-  "license": "Apache",
+  "license": "MIT",
+  "homepage": "https://github.com/ladder-b/jsmx.git",
   "repository": {
     "type": "git",
     "url": "https://github.com/ladder-b/jsmx.git"
