@@ -1,3 +1,3 @@
-# jsmx
+# jsmxq
 JavaScript Message Xchange
 

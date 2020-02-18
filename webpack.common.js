@@ -15,9 +15,8 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js' ],
   },
   output: {
-    filename: 'jsmx.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'jsmx',
+    library: 'jsmxq',
     libraryTarget: 'umd',
   },
   externals: {

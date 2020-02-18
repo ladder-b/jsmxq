@@ -1,8 +1,8 @@
 {
-  "name": "jsmx",
+  "name": "jsmxq",
   "version": "1.0.0",
   "description": "JavaScript Message Xchange",
-  "main": "dist/jsmx-min.js",
+  "main": "dist/jsmxq-min.js",
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js",
     "build:prod": "rm -fr dist/*; webpack --config webpack.prod.js",
@@ -11,10 +11,10 @@
   },
   "author": "Balwinder Singh balwinder.ladher@gmail.com",
   "license": "MIT",
-  "homepage": "https://github.com/ladder-b/jsmx.git",
+  "homepage": "https://github.com/ladder-b/jsmxq.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ladder-b/jsmx.git"
+    "url": "https://github.com/ladder-b/jsmxq.git"
   },
   "devDependencies": {
     "@types/chai": "^4.2.9",
