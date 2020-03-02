@@ -20,6 +20,7 @@ export default class Subscriber {
         this.subjectList = [];
         this.msgSentCount = 0;
         this.msgRecvdCount = 0;
+        this.subscriberObj = this;
     }
 
     getName(): string {
@@ -73,6 +74,9 @@ export default class Subscriber {
         } catch(e) {
             throw(e);
         }
+    }
+
+    onMessageReceive(msg: Message) {
     }
 
     __onMessageReceive(msg: Message) {
