@@ -4,10 +4,10 @@ import ISubscriberObj from './ISubscriberObj';
 
 export var gSubscriberCounter: number = 0;
 
-export default class Subscriber {
+export default class Subscriber implements ISubscriberObj {
     name: string;
     uid: number;
-    subjectList: Array<string>;
+    subjectList: Array<string | RegExp>;
     msgSentCount: number;
     msgRecvdCount: number;
     subscriberObj: ISubscriberObj;
@@ -31,7 +31,7 @@ export default class Subscriber {
         return this.uid;
     }
 
-    getSubjectList(): Array<string> {
+    getSubjectList(): Array<string | RegExp> {
         return this.subjectList;
     }
 
@@ -47,7 +47,7 @@ export default class Subscriber {
         this.subscriberObj = obj;
     }
 
-    addSubject(subject: string) {
+    addSubject(subject: string | RegExp) {
         this.subjectList.push(subject);
         if(this.xchange !== undefined) {
             this.xchange.subscribeToSubject(this, subject);

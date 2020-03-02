@@ -13,7 +13,7 @@ Ancd also [jsmxq-react-todo](https://github.com/ladder-b/jsmxq-react-todo/)
 Xchange takes care of storing received messages in a linked list and then sending them to desired listeners.
 Xchange expects each message to contain a *subject* and *body*. it finds the subscribers interested in message subject and calls *onMessageReceive* function, thus users can process messages in this function. A user can create any number of Xchange objects in application.
 
-Subscriber is the class which receives message from user objects, transformss them into desired format and forward to Xchange. Any class which desires to receive and send messages must extend Subscriber class. A Subscriber must subscribe to Xchange to take part in messaging.
+Subscriber is the class which receives message from user objects, transforms them into desired format and forward to Xchange. Any class which desires to receive and send messages must extend Subscriber class. A Subscriber must subscribe to Xchange to take part in messaging.
 
 ### Example:
 ```
