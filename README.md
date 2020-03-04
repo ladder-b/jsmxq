@@ -5,7 +5,8 @@ JavaScript Message Xchange
 `jsmxq` is very simple messaging library written in Typescript. It provides subject based message routing between objects. It was developed to be used with `reactjs`, but can be used with any project which needs power of messaging.
 
 When used with react, it can enable components to receive and send messages. For more information on how to use with react pl check [jsmxq-react](https://github.com/ladder-b/jsmxq-react/), which is small glue between jsmxq and react.
-Ancd also [jsmxq-react-todo](https://github.com/ladder-b/jsmxq-react-todo/)
+And also [jsmxq-react-todo](https://github.com/ladder-b/jsmxq-react-todo/)
+And a simple demo [jsmxq-react-demo](https://github.com/ladder-b/jsmxq-react-demo)
 
 ### Basics:
 `jsmxq` provides Xchange and Subscriber classes to be used in an application.
