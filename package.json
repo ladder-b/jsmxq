@@ -7,7 +7,8 @@
     "build:dev": "webpack --config webpack.dev.js",
     "build:prod": "rm -fr dist/*; webpack --config webpack.prod.js",
     "clean": "rm -fr dist/* build/*",
-    "test": "mocha"
+    "test": "mocha",
+    "docs": "typedoc"
   },
   "author": "Balwinder Singh balwinder.ladher@gmail.com",
   "license": "MIT",
@@ -24,6 +25,7 @@
     "mocha": "^7.0.1",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
+    "typedoc": "^0.16.11",
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",

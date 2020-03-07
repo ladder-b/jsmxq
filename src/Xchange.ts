@@ -2,9 +2,10 @@ import LinkedList, { LLObj } from "./LinkedList"
 import Message from "./Message"
 import Subscriber from "./Subscriber"
 
-/*
+/**
  *Regular expression subscriber.
  *Subscribers those have REs as subject.
+ *TBD put it it separate file.
  */
 class ReSubscriber {
     re: RegExp;
@@ -16,7 +17,7 @@ class ReSubscriber {
     }
 }
 
-/*
+/**
  *Xchange provides following functionalities
  * 1. Register subscribers
  * 2. Receive messages and based on message subject send them to interested subscribers.
@@ -28,29 +29,31 @@ class ReSubscriber {
  */
 export default class Xchange {
 
-    /*map to store subscribers with string as subject*/
+    /**map to store subscribers with string as subject*/
     subscriberMap: Map<string, Array<Subscriber>>;
-    /*ReSubscribers to store subscribers with RE as subject*/
+    /**ReSubscribers to store subscribers with RE as subject*/
     reSubscribers: Array<ReSubscriber>;
+    /**In coming messages are stored in msgQ.*/
     msgQ: LinkedList;
 
     constructor() {
-        /* map<subject, subscribers<Array>> */
+        /**map<subject, subscribers<Array>> */
         this.subscriberMap = new Map();
-        /* subscribers to subject regular expression*/
+        /**subscribers to subject regular expression*/
         this.reSubscribers = [];
-        /* linked list of messages to be processed*/
+        /**linked list of messages to be processed*/
         this.msgQ = new LinkedList();
     }
 
-    /*
+    /**
      *@returns Returns Map<string, Array<subscriber>>
      */
     getSubscriberMap(): Map<string, Array<Subscriber>> {
         return this.subscriberMap;
     }
 
-    /*return list of subscribers to a subject.
+    /**
+     *Return list of subscribers to a subject.
      *This function returns subscribers those have subject as string only.
      *The subscribers interested in RE subjects are not returned by this function.
      *
@@ -62,7 +65,7 @@ export default class Xchange {
         }
     }
 
-    /*
+    /**
      *This function adds subscriber to the list of subscribers.
      *@param subscriber: Subscriber - The subscriber to be added
      *@param subject: string|RegExp - The subject in which subscriber is interested.
@@ -89,7 +92,7 @@ export default class Xchange {
         }
     }
 
-    /*
+    /**
      *This function registers subscriber and adds it to desired subjects.
      *This function must be called before calling any other function of Xchange.
      *@param subscriber: Subscriber
@@ -106,7 +109,7 @@ export default class Xchange {
         subscriber.setXchange(this);
     }
 
-    /*
+    /**
      *Remove subscriber from subject's subscriber list.
      *@param subscriber: Subscriber - the subscriber which should be removed.
      *@param subject: string|RegExp - the subject
@@ -132,7 +135,7 @@ export default class Xchange {
         }
     }
 
-    /*
+    /**
      *Unregister subscriber from Xchange. After this call subscriber will not be able to take part
      *in messaging.
      *@param subscriber: Subscriber - the subscriber to be removed.
@@ -149,7 +152,7 @@ export default class Xchange {
         subscriber.setXchange(undefined);
     }
 
-    /*
+    /**
      *post message in this exchange. Message received is immediately processed for delivery, hence
      *at this moment message reception and delevery is synchrosous.
      *
@@ -160,7 +163,7 @@ export default class Xchange {
         this.run();
     }
 
-    /*
+    /**
      *Send a message wrt RE subscribers.
      *msg subject is compared with each ReSubscriber and if found matching msg is delivered.
      *This function is used internally by send(msg).
@@ -176,7 +179,7 @@ export default class Xchange {
         })
     }
 
-    /*
+    /**
      *Based on message subject send it to its desired recipients.
      *
      *@param msg: Message - message to be send.
@@ -198,7 +201,7 @@ export default class Xchange {
         this.sendRe(msg);
     }
 
-    /*
+    /**
      *Process messages in q.
      *Currently this function is called as soon as a message is received.
      */
