@@ -1,8 +1,9 @@
 {
   "name": "jsmxq",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "JavaScript Message Xchange",
   "main": "dist/jsmxq-min.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js",
     "build:prod": "rm -fr dist/*; webpack --config webpack.prod.js",
