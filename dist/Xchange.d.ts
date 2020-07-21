@@ -55,6 +55,8 @@ export default class Xchange {
     subscribe(subscriber: Subscriber): void;
     /**
      *Remove subscriber from subject's subscriber list.
+     *If number of subcribers to a subject become zero, that subject is removed
+     *from subscribersMap.
      *@param subscriber: Subscriber - the subscriber which should be removed.
      *@param subject: string|RegExp - the subject
      */

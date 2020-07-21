@@ -98,19 +98,24 @@ export default class Xchange {
      *@param subscriber: Subscriber
      */
     subscribe(subscriber: Subscriber) {
-        if(subscriber.getName() === undefined || subscriber.getSubjectList() === undefined) {
-            throw new Error("Error: Subscriber parameter error, either name or subect is undefined");
+        if(subscriber.getName() === undefined) {
+            throw new Error("Error: Subscriber name not supplied");
         }
-     
-        subscriber.subjectList.forEach(subject => {
-            this.subscribeToSubject(subscriber, subject);
-        })
+    
+        /**Subscriber without subject is also accepted. Such subscribers can only send messages*/
+        if(subscriber.subjectList && subscriber.subjectList.length > 0) {
+            subscriber.subjectList.forEach(subject => {
+                this.subscribeToSubject(subscriber, subject);
+            })
+        }
        
         subscriber.setXchange(this);
     }
 
     /**
      *Remove subscriber from subject's subscriber list.
+     *If number of subcribers to a subject become zero, that subject is removed
+     *from subscribersMap.
      *@param subscriber: Subscriber - the subscriber which should be removed.
      *@param subject: string|RegExp - the subject
      */
@@ -122,6 +127,9 @@ export default class Xchange {
                 let idx: number = list.indexOf(subscriber);
                 if( idx >= 0) {
                     list.splice(idx, 1);
+                    if(list.length === 0) {
+                        this.subscriberMap.delete(subject);
+                    }
                 }
             }
         } else if(subject instanceof RegExp) {
