@@ -1,3 +1,3 @@
 export default interface ISubscriberObj {
-    onMessageReceive(msg: Object): void;
+    onMessageReceive(msg: any): void;
 }

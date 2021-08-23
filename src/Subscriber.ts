@@ -103,11 +103,11 @@ export default class Subscriber implements ISubscriberObj {
      *post a message to registered Xchange.
      *
      * @param subject: string - The subject of message. When posting subject must a string only.
-     * @param data: Object - the data which will be posted. This data will be available at msg.content to receiver.
+     * @param data: any - the data which will be posted. This data will be available at msg.content to receiver.
      * @param dst: string - specify destination to which data should be delivered. At present not used.
      * @param ttl: number - time to live. If message is not delivered, how much time should it live in system. At present not used.
      */
-    post(subject: string, data: Object, dst: string = undefined, ttl: number = 10) {
+    post(subject: string, data: any, dst: string = undefined, ttl: number = 10) {
         if(this.xchange === undefined) {
             throw new Error("Error: subscriber not registered to any Exchange");
         }

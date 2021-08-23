@@ -162,7 +162,7 @@ export default class Xchange {
 
     /**
      *post message in this exchange. Message received is immediately processed for delivery, hence
-     *at this moment message reception and delevery is synchrosous.
+     *at this moment message reception and delevery is synchronous.
      *
      * @param msg; Message - message to be posted.
      */

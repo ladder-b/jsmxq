@@ -3,9 +3,9 @@ export class LLObj {
     next: LLObj;
     number: Number;
     priority: Number;
-    obj: Object;
+    obj: any;
 
-    constructor(obj: Object, number: Number = 0, priority: Number = 0) {
+    constructor(obj: any, number: Number = 0, priority: Number = 0) {
         this.number = number;
         this.priority = priority;
         this.obj = obj;
@@ -25,18 +25,18 @@ export default class LinkedList {
         return this.size;
     }
 
-    push(obj: Object) {
+    push(obj: any) {
         let llObj = new LLObj(obj, this.size);
-        
+
         if(this.size === 0) {
             this.head = llObj;
         } else {
             this.tail.next = llObj;
             llObj.prev = this.tail;
         }
-        
+
         this.size++;
-        this.tail = llObj;        
+        this.tail = llObj;
     }
 
     removeLLObj(obj: LLObj) {
@@ -44,9 +44,9 @@ export default class LinkedList {
             obj.prev.next = obj.next;
         }
         if(obj.next !== undefined) {
-            obj.next.prev = obj.prev;   
-        }    
-        this.size--; 
+            obj.next.prev = obj.prev;
+        }
+        this.size--;
     }
 
     remove(idx: number) {
@@ -75,13 +75,13 @@ export default class LinkedList {
         return obj;
     }
 
-    get(idx: number) : Object {
+    get(idx: number) : any {
         let llobj: LLObj = this.getLLObj(idx);
         this.removeLLObj(llobj);
         return llobj.obj;
     }
 
-    getHead(): Object {
+    getHead(): any {
         if(this.size > 0) {
             let obj: any = this.head.obj;
             this.head = this.head.next;
@@ -94,7 +94,7 @@ export default class LinkedList {
         throw new Error("No objects in list");
     }
 
-    pop() : Object {
+    pop() : any {
         if(this.size > 0) {
             this.size--;
             let obj: LLObj = this.tail;
@@ -105,7 +105,7 @@ export default class LinkedList {
 
             obj.prev = undefined;
             obj.next = undefined;
-           
+
             return obj.obj;
         } else {
             throw new Error("Error pop() operation: Linked list in empty")

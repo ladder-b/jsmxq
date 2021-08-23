@@ -33,7 +33,7 @@ class Sub extends Subscriber {
         super(name);
     }
 
-    onMessageReceive(msg: Object) {
+    onMessageReceive(msg: any) {
         console.log(msg);
     }
 }

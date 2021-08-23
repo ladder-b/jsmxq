@@ -3,8 +3,8 @@ export declare class LLObj {
     next: LLObj;
     number: Number;
     priority: Number;
-    obj: Object;
-    constructor(obj: Object, number?: Number, priority?: Number);
+    obj: any;
+    constructor(obj: any, number?: Number, priority?: Number);
 }
 export default class LinkedList {
     head: LLObj;
@@ -12,11 +12,11 @@ export default class LinkedList {
     size: number;
     constructor();
     getSize(): number;
-    push(obj: Object): void;
+    push(obj: any): void;
     removeLLObj(obj: LLObj): void;
     remove(idx: number): void;
     getLLObj(idx: number): LLObj;
-    get(idx: number): Object;
-    getHead(): Object;
-    pop(): Object;
+    get(idx: number): any;
+    getHead(): any;
+    pop(): any;
 }

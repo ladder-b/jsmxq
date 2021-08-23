@@ -7,14 +7,14 @@ export default class Message {
     deliverTime: number;
     ttl: number;
     uid: number;
-    content: Object;
-    constructor(subject: string, data: Object);
+    content: any;
+    constructor(subject: string, data: any);
     getSource(): string;
     getDst(): string;
     getSubject(): string;
     getSendTime(): number;
     getDeleverTime(): number;
-    getContent(): Object;
+    getContent(): any;
     getTtl(): number;
     getUid(): number;
     setDst(dst: string): void;

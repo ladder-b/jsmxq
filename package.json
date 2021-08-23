@@ -1,6 +1,6 @@
 {
   "name": "jsmxq",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "JavaScript Message Xchange",
   "main": "dist/jsmxq-min.js",
   "types": "dist/index.d.ts",

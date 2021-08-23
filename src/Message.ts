@@ -9,9 +9,9 @@ export default class Message {
     deliverTime: number;
     ttl: number;
     uid: number;
-    content: Object;
+    content: any;
     
-    constructor(subject: string, data: Object) {
+    constructor(subject: string, data: any) {
         this.ttl = 10;
         this.uid = gMsgCounter;
         gMsgCounter++;
@@ -39,7 +39,7 @@ export default class Message {
         return this.deliverTime;
     }
 
-    getContent(): Object {
+    getContent(): any {
         return this.content;
     }
 
