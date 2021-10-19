@@ -15,7 +15,7 @@ export default class Subscriber implements ISubscriberObj {
     msgSentCount: number;
     msgRecvdCount: number;
     subscriberObj: ISubscriberObj;
-    xchange: Xchange;
+    xchange: Xchange | undefined;
 
     constructor(name: string) {
         /**Name of subscriber. In future may be used to implement src/dst based message rules */
@@ -114,7 +114,7 @@ export default class Subscriber implements ISubscriberObj {
 
         try {
             let msg: Message = new Message(subject, data);
-            msg.setSendTime(Date.now());
+            msg.setSentTime(Date.now());
             msg.setTtl(ttl);
             msg.setDst(dst);
             msg.setSource(this.getName());

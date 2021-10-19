@@ -5,7 +5,7 @@ export default class Message {
     source: string;
     dst: string;
     subject: string;
-    sendTime: number;
+    sentTime: number;
     deliverTime: number;
     ttl: number;
     uid: number;
@@ -17,6 +17,10 @@ export default class Message {
         gMsgCounter++;
         this.subject = subject;
         this.content = data;
+        this.source = "";
+        this.dst = "";
+        this.sentTime = 0;
+        this.deliverTime = 0;
     }
 
     getSource(): string {
@@ -31,8 +35,8 @@ export default class Message {
         return this.subject;
     }
 
-    getSendTime(): number {
-        return this.sendTime;
+    getSentTime(): number {
+        return this.sentTime;
     }
 
     getDeleverTime(): number {
@@ -59,8 +63,8 @@ export default class Message {
         this.source = src;
     }
     
-    setSendTime(time: number) {
-        this.sendTime = time;
+    setSentTime(time: number) {
+        this.sentTime = time;
     }
 
     setDeliverTime(time: number) {

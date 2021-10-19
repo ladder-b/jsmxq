@@ -13,7 +13,7 @@ export default class Subscriber implements ISubscriberObj {
     msgSentCount: number;
     msgRecvdCount: number;
     subscriberObj: ISubscriberObj;
-    xchange: Xchange;
+    xchange: Xchange | undefined;
     constructor(name: string);
     /**
      *Returns name on subcriber. Currently is not used.

@@ -1,6 +1,6 @@
 export class LLObj {
-    prev: LLObj;
-    next: LLObj;
+    prev: LLObj | undefined;
+    next: LLObj | undefined;
     number: Number;
     priority: Number;
     obj: any;

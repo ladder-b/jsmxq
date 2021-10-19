@@ -11,9 +11,9 @@ describe('Message tests', function() {
         expect(data.msg).to.equal("hello");
         expect(msg.uid).to.equal(gMsgCounter-1);
         expect(msg.getTtl()).to.equal(10);
-        expect(msg.getSource()).to.equal(undefined);
-        expect(msg.getDst()).to.equal(undefined);
-        expect(msg.getSendTime()).to.equal(undefined);
-        expect(msg.getDeleverTime()).to.equal(undefined);
+        expect(msg.getSource()).to.equal("");
+        expect(msg.getDst()).to.equal("");
+        expect(msg.getSentTime()).to.equal(0);
+        expect(msg.getDeleverTime()).to.equal(0);
     });
 })
