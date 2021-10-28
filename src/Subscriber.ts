@@ -92,6 +92,22 @@ export default class Subscriber implements ISubscriberObj {
     }
 
     /**
+     * unsubscribe from xchange.
+     */
+    unsubscribe() {
+      if(this.xchange !== undefined) {
+        this.xchange.unsubscribe(this);
+      }
+    }
+
+    /**
+     * remove subejct.
+     */
+    removeSubject(subject: string | RegExp) {
+      this.xchange.unsubscribeToSubject(this, subject);
+    }
+
+    /**
      *set exchange of this subscriber.
      *To be used internally only.
      */
