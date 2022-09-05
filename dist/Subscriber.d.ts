@@ -50,6 +50,14 @@ export default class Subscriber implements ISubscriberObj {
      */
     addSubject(subject: string | RegExp): void;
     /**
+     * unsubscribe from xchange.
+     */
+    unsubscribe(): void;
+    /**
+     * remove subejct.
+     */
+    removeSubject(subject: string | RegExp): void;
+    /**
      *set exchange of this subscriber.
      *To be used internally only.
      */

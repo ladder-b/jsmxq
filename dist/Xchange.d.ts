@@ -56,7 +56,8 @@ export default class Xchange {
     /**
      *Remove subscriber from subject's subscriber list.
      *If number of subcribers to a subject become zero, that subject is removed
-     *from subscribersMap.
+     *from subscribersMap. Subscriber is searched by name, hence you should give unique name
+     *when creating a subscriber.
      *@param subscriber: Subscriber - the subscriber which should be removed.
      *@param subject: string|RegExp - the subject
      */

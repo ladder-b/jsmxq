@@ -163,6 +163,9 @@ export default class Xchange {
           this.unsubscribeToSubject(subscriber, key);
         })
 
+        this.reSubscribers.forEach( resub => {
+            this.unsubscribeToSubject(subscriber, resub.re);
+        })
         //subscriber.subjectList.forEach(subject => {
         //    this.unsubscribeToSubject(subscriber, subject);
         //})
