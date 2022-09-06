@@ -10,6 +10,8 @@ export default class Message {
     ttl: number;
     uid: number;
     content: any;
+    /*callback function, if set, will be called after msg is sent*/
+    onMessageSent?: (result?: any) => void | undefined;
     
     constructor(subject: string, data: any) {
         this.ttl = 10;
