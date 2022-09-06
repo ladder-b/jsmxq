@@ -8,6 +8,7 @@ export default class Message {
     ttl: number;
     uid: number;
     content: any;
+    onMessageSent?: (result?: any) => void | undefined;
     constructor(subject: string, data: any);
     getSource(): string;
     getDst(): string;

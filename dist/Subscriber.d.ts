@@ -68,9 +68,8 @@ export default class Subscriber implements ISubscriberObj {
      * @param subject: string - The subject of message. When posting subject must a string only.
      * @param data: any - the data which will be posted. This data will be available at msg.content to receiver.
      * @param dst: string - specify destination to which data should be delivered. At present not used.
-     * @param ttl: number - time to live. If message is not delivered, how much time should it live in system. At present not used.
      */
-    post(subject: string, data: any, dst?: string, ttl?: number): void;
+    post(subject: string, data: any, dst?: string, onMessageSent?: (result: any) => void): void;
     /**
      *This function is called whenever a message it to be delivered.
      *Override this function in your parent object.
