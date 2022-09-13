@@ -192,11 +192,15 @@ export default class Xchange {
      *@param msg: Message = message to be send.
      */
     sendRe(msg: Message) {
-        this.reSubscribers.map( (resub) => {
+        this.reSubscribers.forEach( (resub) => {
             if(resub.re.test(msg.subject)) {
-                msg.setDeliverTime(Date.now());
-                resub.subscriberList.map(subscriber => subscriber.__onMessageReceive(msg));
+                msg.setDeliverTime(Date.now());                
+                resub.subscriberList.forEach(subscriber => {
+                    subscriber.__onMessageReceive(msg);
+                })
             }
+            /**reset last index to 0, if subject re contains /g, it will help match every time*/
+            resub.re.lastIndex = 0;
         })
     }
 
